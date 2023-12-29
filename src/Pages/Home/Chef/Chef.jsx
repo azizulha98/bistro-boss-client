@@ -1,17 +1,9 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import ChefCard from "./ChefCard";
+import useMenu from "../../../hooks/useMenu";
 
 const Chef = () => {
-  const [menuChef, setMenuChef] = useState([]);
-  useEffect(() => {
-    fetch('menu.json')
-      .then(res => res.json())
-      .then(data => {
-        const chefItem = data.filter(item => item.category === 'offered')
-        setMenuChef(chefItem)
-      })
-  }, [])
+  const [menu] = useMenu();
+  const menuChef = menu?.filter(item => item.category === 'offered');
   return (
     <section>
       <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
