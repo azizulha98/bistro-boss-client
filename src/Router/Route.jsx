@@ -6,6 +6,7 @@ import Menu from '../Pages/Menu/Menu/Menu';
 import Order from '../Pages/Order/Order/Order';
 import Login from '../Pages/Login/Login';
 import Singin from '../Pages/Singin/Singin';
+import PrivateRoute from './PrivateRoute';
 
 
 const createRouter = createBrowserRouter([
@@ -16,7 +17,7 @@ const createRouter = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: 'menu', element: <Menu /> },
-      { path: 'order/:category', element: <Order /> },
+      { path: 'order/:category', element: <PrivateRoute><Order /> </PrivateRoute> },
       { path: 'login', element: <Login /> },
       { path: 'singing', element: <Singin /> },
 

@@ -2,18 +2,34 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import loginImg from '../../assets/others/authentication2.png'
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Singin = () => {
-  const { createUser } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     console.log(data)
     createUser(data.email, data.password)
       .then(result => {
         const user = result.user;
         console.log(user);
+        updateUserProfile(data.name, data.photoURL)
+          .then(() => {
+            console.log('user profile update');
+            reset()
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Sing Up successfully",
+              showConfirmButton: true,
+            });
+            navigate('/')
+          })
+          .catch(err => console.error(err))
       })
   }
 
@@ -33,6 +49,15 @@ const Singin = () => {
               <input type="text" name='name' {...register("name", { required: true })} placeholder="Name" className="input input-bordered" />
               {errors.name && <span className="text-red-600">name is required</span>}
             </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input type="text" {...register("photoURL", { required: true })} placeholder="photo URL" className="input input-bordered" />
+              {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
+            </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -61,7 +86,7 @@ const Singin = () => {
               )}
             </div>
             <div className="form-control mt-6">
-              <input className="btn btn-primary" type="submit" value="Logout" />
+              <input className="btn btn-primary" type="submit" value="Sing Up" />
             </div>
             <p><small>Already have an account<Link to='/login' className='text-yellow-700 underline'> Please Login</Link></small></p>
           </form>

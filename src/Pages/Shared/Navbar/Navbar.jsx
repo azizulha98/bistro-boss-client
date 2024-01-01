@@ -16,7 +16,9 @@ const Navbar = () => {
     {
       user ?
         <>
-          <NavLink><li><button onClick={handleLogout} className="btn-ghost uppercase">Logout</button></li></NavLink>
+          <NavLink><li><button onClick={handleLogout} className="btn-ghost uppercase">Logout<small className="text-orange-500">{user.displayName}</small></button></li></NavLink>
+
+          <img src={user.photoURL} alt="" className="w-10 rounded-full" />
         </>
         :
         <>
