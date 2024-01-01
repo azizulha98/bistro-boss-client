@@ -1,5 +1,4 @@
 const ChefCard = ({ item }) => {
-  console.log(item);
   const { image, name, recipe } = item;
   return (
     <div className="w-full shadow-xl rounded-xl">

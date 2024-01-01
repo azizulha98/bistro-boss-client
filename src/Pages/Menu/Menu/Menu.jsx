@@ -25,21 +25,15 @@ const Menu = () => {
       <section className="my-10 space-y-8">
         <SectionTitle heading="today's offer" subHeading="Don't miss" />
         <MenuCategory items={offered} />
-        <div className="flex justify-center">
-          <button className="btn btn-outline btn-sm border-0 border-b-2 text-yellow-700 uppercase font-bold tracking-widest ">order your favorite food</button>
-        </div>
       </section>
 
       <section className="my-10 space-y-8">
         <MenuCategory
           items={desserts}
-          title="Dessert"
+          title="dessert"
           coverImg={dessertsImg}
           details={"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
         />
-        <div className="flex justify-center">
-          <button className="btn btn-outline btn-sm border-0 border-b-2 text-yellow-700 uppercase font-bold tracking-widest ">order your favorite food</button>
-        </div>
       </section>
 
       <section className="my-10 space-y-8">
@@ -49,21 +43,15 @@ const Menu = () => {
           coverImg={pizzaImg}
           details={"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
         />
-        <div className="flex justify-center">
-          <button className="btn btn-outline btn-sm border-0 border-b-2 text-yellow-700 uppercase font-bold tracking-widest ">order your favorite food</button>
-        </div>
       </section>
 
       <section className="my-10 space-y-8">
         <MenuCategory
           items={salad}
-          title="Salad"
+          title="salad"
           coverImg={saladImg}
           details={"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
         />
-        <div className="flex justify-center">
-          <button className="btn btn-outline btn-sm border-0 border-b-2 text-yellow-700 uppercase font-bold tracking-widest ">order your favorite food</button>
-        </div>
       </section>
 
       <section className="my-10 space-y-8">
@@ -73,9 +61,6 @@ const Menu = () => {
           coverImg={soupsImg}
           details={"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
         />
-       <div className="flex justify-center">
-          <button className="btn btn-outline btn-sm border-0 border-b-2 text-yellow-700 uppercase font-bold tracking-widest ">order your favorite food</button>
-        </div>
       </section>
     </>
   );

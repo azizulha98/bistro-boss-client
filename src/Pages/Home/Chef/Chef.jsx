@@ -1,5 +1,5 @@
-import ChefCard from "./ChefCard";
 import useMenu from "../../../hooks/useMenu";
+import FoodCard from "../../../Components/FoodCard/FoodCard";
 
 const Chef = () => {
   const [menu] = useMenu();
@@ -8,7 +8,7 @@ const Chef = () => {
     <section>
       <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {
-          menuChef?.map(item => <ChefCard key={item._id} item={item} />)
+          menuChef?.map(item => <FoodCard key={item._id} item={item} />)
         }
       </div>
     </section>
